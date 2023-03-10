@@ -16,7 +16,7 @@ class GPT3Bot(irc.bot.SingleServerIRCBot):
     def on_pubmsg(self, c, e):
         print("Public message")
         a = e.arguments[0]
-            self.do_command(e, str(a))
+        self.do_command(e, str(a))
         return
 
     def do_command(self, e, cmd):
@@ -34,7 +34,7 @@ class GPT3Bot(irc.bot.SingleServerIRCBot):
         )
 
         message = completions.choices[0].text
-        print(message)  
+        print(message)
         messager = message.replace('\n', ' ')
         for line in textwrap.wrap(message.strip(), width=395):
             c.privmsg(self.channel, line)
@@ -44,4 +44,3 @@ class GPT3Bot(irc.bot.SingleServerIRCBot):
 bot = GPT3Bot("#channel", "Bot name", "IRC server address", "YOUR API KEY HERE")
 print("Starting chatGPTree")
 bot.start()
-

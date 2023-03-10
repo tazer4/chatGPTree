@@ -36,7 +36,7 @@ class GPT3Bot(irc.bot.SingleServerIRCBot):
         message = completions.choices[0].text
         print(message)  
         messager = message.replace('\n', ' ')
-        for line in textwrap.wrap(message.strip(), width=450):
+        for line in textwrap.wrap(message.strip(), width=395):
             c.privmsg(self.channel, line)
             break
         print(messager)
